@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>南大-人脸签到系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>人脸签到系统（Teachable Machine版）</h1>
+        <!-- 摄像头画面：核心，调起电脑摄像头 -->
+        <video id="video" autoplay playsinline muted width="640" height="480"></video>
+        <!-- 画布：隐私核心！只在本地绘制人脸，数据永不上传网络 -->
+        <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+        <!-- 功能按钮 -->
+        <div class="btn-group">
+            <button id="openCamera">开启摄像头</button>
+            <button id="signBtn">签到识别</button>
+            <button id="exportBtn">导出签到记录</button>
+        </div>
+        <!-- 签到结果展示区 -->
+        <div class="result" id="result"></div>
+        <!-- 签到名单展示区 -->
+        <div class="record" id="record"></div>
+    </div>
+    <!-- 引入必须的库（CDN，不用下载，直接用） -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8.5/dist/teachablemachine-image.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
